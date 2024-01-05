@@ -13,3 +13,6 @@ def tempAccess(request):
 
 def gotInput(request,mynum):
     return render(request,'hell.html',{'data':mynum*2})
+
+def showImg(request):
+    return render(request,'myresource.html')
