@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+{% block routings %}
+    <h1 class="display-5 text-success text-center mb-5">View all Experts</h1>
+    <table cellspaing="4" cellpadding="4" class="table table-striped shadow-lg rounded-2 p-3 text-center">
+        <thead>
+            <tr>
+                <th>Expert ID</th><th>Expert Name</th><th>Expert Skills</th>
+                <th>Expert Contact</th><th>Expert Experience</th><th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%if records%}
+                {%for d in records%}
+                    <tr>
+                        <td><a href="/erp/one/{{d.resource_id}}" class="text-warning">
+                            {{d.resource_id}}
+                        </a></td>
+                        <td>{{d.resource_name}}</td>
+                        <td>{{d.resource_skills}}</td><td>{{d.resource_contact}}</td>
+                        <td>{{d.resource_experience}}</td>
+                        <td>
+                            <a class="btn btn-outline-danger" href="/erp/remove/{{d.resource_id}}"><span class="bi bi-trash3-fill"></span></a>
+                        </td>
+                    </tr>
+                {%endfor%}
+            {%endif%}
+        </tbody>
+    </table>
+{% endblock routings %}
