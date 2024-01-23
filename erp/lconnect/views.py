@@ -37,9 +37,8 @@ def showShort(request):
             skill=request.POST['skill']
             exp=request.POST['exp']
             if skill != "" and exp=="":
-                skill=skill.lower()
                 print(skill)
-                data = documents.resources.objects.filter(resource_skills__iexists=[skill])
+                data = documents.resources.objects(resource_skills__contains=str(skill))
                 return render(request,'listall.html',{"records":data})
             elif skill == "" and exp!="":
                 exp=int(exp)
