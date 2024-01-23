@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block routings %}
+<form method="post">
+    {%csrf_token%}
+    <div class="form group">
+        <label>Filter By Skills</label>
+        <input type="text" name="skill" placeholder="Enter the skill set" class="form-control" />
+    </div>
+    <hr width="100%"/>
+    <p class="display-4 text-center">OR</p>
+    <hr width="100%"/>
+    <div class="form group">
+        <label>Filter by experience</label>
+        <input type="text" name="exp" class="form-control" placeholder="Enter the experience" />
+    </div>
+    <div class="mt-2 row justify-content-around">
+        <button class="btn btn-outline-info col-2" type="submit">
+            <i class="bi bi-funnel"></i>
+        </button>
+        <button class="btn btn-outline-danger col-2" type="reset" >
+            <i class="bi bi-skip-backward-fill"></i>
+        </button>
+    </div>
+</form>
+{% endblock routings%}
